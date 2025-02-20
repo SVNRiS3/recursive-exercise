@@ -8,15 +8,15 @@
 // }
 
 function fibs(sequenceLength, fibArray = [0, 1]) {
-  if (sequenceLength === 1) {
+  if (sequenceLength <= 1) {
     return [0];
   } else if (sequenceLength === 2) {
     return [0, 1];
   }
-  fibArray.push(
-    fibs(sequenceLength - 1, fibArray).slice(-1)[0] +
-      fibs(sequenceLength - 2).slice(-1)[0]
-  );
+  if (fibArray.length < sequenceLength) {
+    fibArray.push(fibArray.slice(-1)[0] + fibArray.slice(-2)[0]);
+    return fibs(sequenceLength, fibArray);
+  }
   return fibArray;
 }
 
