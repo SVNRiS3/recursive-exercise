@@ -18,7 +18,7 @@ function mergeSort(arr) {
       tmp = tmp.concat(leftArray.slice(i));
       break;
     }
-    if (leftArray[i] > rightArray[j]) {
+    if (leftArray[i] >= rightArray[j]) {
       tmp.push(rightArray[j]);
       j++;
     } else if (leftArray[i] < rightArray[j]) {
@@ -29,5 +29,4 @@ function mergeSort(arr) {
 
   return tmp;
 }
-
-console.log(mergeSort([8, 2, 6, 1, 9]));
+console.log(mergeSort([3, 2, 1, 13, 8, 5, 0, 1]));
