@@ -7,16 +7,14 @@
 //   return fibArray;
 // }
 
-function fibs(sequenceLength, fibArray = [0, 1]) {
+function fibs(sequenceLength) {
   if (sequenceLength <= 1) {
     return [0];
   } else if (sequenceLength === 2) {
     return [0, 1];
   }
-  if (fibArray.length < sequenceLength) {
-    fibArray.push(fibArray.slice(-1)[0] + fibArray.slice(-2)[0]);
-    return fibs(sequenceLength, fibArray);
-  }
+  const fibArray = fibs(sequenceLength - 1);
+  fibArray.push(fibArray.slice(-1)[0] + fibArray.slice(-2)[0]);
   return fibArray;
 }
 
