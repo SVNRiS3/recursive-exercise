@@ -3,16 +3,13 @@ function mergeSort(arr) {
     return arr;
   }
 
-  const leftArray = arr.slice(0, arr.length / 2);
-  const rightArray = arr.slice(arr.length / 2);
+  const leftArray = mergeSort(arr.slice(0, arr.length / 2));
+  const rightArray = mergeSort(arr.slice(arr.length / 2));
   let tmp = [];
   let i = 0;
   let j = 0;
 
   while (i <= leftArray.length && j <= rightArray.length) {
-    console.log(tmp);
-    console.log(i);
-    console.log(j);
     if (leftArray.length === i) {
       tmp = tmp.concat(rightArray.slice(j));
       break;
